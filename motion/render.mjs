@@ -17,7 +17,7 @@ const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const URL = pathToFileURL(path.join(ROOT, 'src/index.html')).href + '?render=1';
 const FRAMES = path.join(ROOT, 'frames');
 const OUT = path.join(ROOT, 'out');
-const FPS = 60, DUR = 32, TOTAL = FPS * DUR, WORKERS = 4;
+const FPS = 60, DUR = 40, TOTAL = FPS * DUR, WORKERS = 4;
 const args = process.argv.slice(2);
 const arg = k => { const i = args.indexOf(k); return i < 0 ? null : (args[i + 1] ?? true); };
 

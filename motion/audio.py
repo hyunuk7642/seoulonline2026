@@ -1,11 +1,11 @@
 """영상용 배경 트랙을 합성한다 (numpy만 사용, 외부 음원 없음).
-120 BPM · 32초 · 장면 전환(4/6/8/12/16/20/24/28초)에 맞춘 히트와 우쉬.
+120 BPM · 40초 · 장면 전환(4/6/8/12/…/32/36초)에 맞춘 히트와 우쉬.
   python3 audio.py  →  out/track.wav
 """
 import os, wave
 import numpy as np
 
-SR, DUR, BEAT = 44100, 32.0, 0.5
+SR, DUR, BEAT = 44100, 40.0, 0.5
 N = int(SR * DUR)
 TAIL = SR * 3
 rng = np.random.default_rng(11)
@@ -142,7 +142,7 @@ CH = {  # bass midi, pad voicing
     'F': (41, [53, 57, 60, 64]), 'G': (43, [55, 59, 62, 64]),
     'Am': (45, [57, 60, 64, 67]), 'C': (48, [55, 60, 62, 64, 67]),
 }
-BARS = ['F', 'G', 'Am', 'C', 'F', 'G', 'Am', 'C', 'F', 'G', 'Am', 'C', 'F', 'G', 'C', 'C']
+BARS = ['F', 'G', 'Am', 'C'] * 4 + ['F', 'G', 'C', 'C']
 K, CL, H1, H2, OH = kick(), clap(), hat(0.018), hat(0.03), hat(0.085)
 kick_times = []
 
@@ -151,16 +151,17 @@ for b, name in enumerate(BARS):
     # pad
     if b < 2:   put(music, pad(notes, 2.0, cutoff=700 + 500 * b, att=0.9 if b == 0 else 0.3), t0, 0.50)
     elif b == 2: put(music, pad(notes, 2.0, cutoff=1100), t0, 0.55)
-    elif b == 15: pass
-    elif b == 14: put(music, pad(notes, 3.6, cutoff=2800, rel=1.6), t0, 0.90)
+    elif b == 19: pass
+    elif b == 18: put(music, pad(notes, 3.6, cutoff=2800, rel=1.6), t0, 0.90)
+    elif b in (16, 17): put(music, pad(notes, 2.0, cutoff=1500), t0, 0.80)
     else:       put(music, pad(notes, 2.0, cutoff=2800), t0, 0.85)
-    if not (4 <= b <= 13):
+    if not (4 <= b <= 15):
         continue
-    breakdown = (b == 12)                      # 24–26s: 숫자 '46' 직전 브레이크
+    breakdown = (b == 14)                      # 28–30s: 숫자 '46' 직전 브레이크
     for s in range(16):                        # 16분음표
         t = t0 + s * 0.125
         quiet = breakdown and s < 8
-        last_half = s >= 14 and b in (5, 7, 9, 11, 13)   # 전환 직전 반 박은 비움
+        last_half = s >= 14 and b in (5, 7, 9, 11, 13, 15)   # 전환 직전 반 박은 비움
         if s % 4 == 0 and not quiet and not last_half:
             put(drums, K, t, 0.68); kick_times.append(t)
         if s % 8 == 4 and b >= 5 and not quiet:
@@ -200,25 +201,37 @@ for i, m in enumerate((84, 88, 91)):
 for i, m in enumerate((72, 76, 79, 84, 86, 88, 91)):
     put(music, pluck(m, 0.4, 0.09), 7.0 + i * 0.0625, 0.22, pan=(i - 3) / 4); put(send, pluck(m, 0.4, 0.09), 7.0 + i * 0.0625, 0.16)
 # --- 전환 우쉬 + 히트
-for T in (8, 12, 16, 20, 24):
+for T in (8, 12, 16, 20, 24, 28, 32):
     put(fx, whoosh(0.78, 0.5), T - 0.39, 0.36)
     put(drums, impact(0.7), T, 0.42); put(send, crash(), T, 0.10)
 for t in (8.5, 9.5, 10.5):                       # 시간표 블록 팝
     put(music, bell(88 if t < 10 else 91, 0.9), t, 0.16); put(send, bell(88, 0.9), t, 0.14)
-put(fx, riser(0.9), 18.0, 0.16)                  # 카운트업
-put(fx, riser(1.0), 24.0, 0.30)                  # '46' 직전
-put(drums, impact(), 25.0, 0.9); put(send, crash(), 25.0, 0.2); kick_times.append(25.0)
-for i, t in enumerate((25.5, 26.0, 26.5)):
+put(fx, riser(0.9), 18.0, 0.16)                  # 수강생 카운트업
+put(fx, riser(0.9), 21.0, 0.14)                  # 피드백 카운트업
+put(music, bell(91, 0.9), 22.0, 0.15); put(send, bell(91, 0.9), 22.0, 0.13)
+put(fx, riser(1.0), 28.0, 0.30)                  # '46' 직전
+put(drums, impact(), 29.0, 0.9); put(send, crash(), 29.0, 0.2); kick_times.append(29.0)
+for i, t in enumerate((29.5, 30.0, 30.5)):
     put(music, bell(86 + i * 2, 0.8), t, 0.15); put(send, bell(86 + i * 2, 0.8), t, 0.12)
-# --- S8 (28–32): 엔드 카드
-put(fx, whoosh(0.7, 0.55), 27.62, 0.34)
-put(drums, impact(), 28.0, 0.95); put(send, crash(), 28.0, 0.24)
-put(fx, tick(), 28.42, 0.5)
+# --- S8a (32–36): 세 줄 + '연결되었습니다'
+for i, t in enumerate((32.14, 33.0, 34.0)):
+    put(drums, thud(100 + i * 12), t, 0.8); put(drums, H2, t, 0.14); kick_times.append(t)
+    for j, m in enumerate((72 + (0, 4, 7)[i], 79 + (0, 4, 5)[i])):
+        put(music, pluck(m, 0.9, 0.2), t + j * 0.04, 0.26); put(send, pluck(m, 0.9, 0.2), t + j * 0.04, 0.2)
+    put(fx, riser(0.6), t + 0.02, 0.10)
+put(fx, riser(0.6), 34.42, 0.26)
+put(drums, impact(), 35.0, 0.9); put(send, crash(), 35.0, 0.22); kick_times.append(35.0)
+for i, m in enumerate((79, 84, 88, 91)):
+    put(music, bell(m, 1.4), 35.0 + i * 0.03, 0.22); put(send, bell(m, 1.4), 35.0 + i * 0.03, 0.25)
+# --- S8 (36–40): 엔드 카드
+put(fx, whoosh(0.7, 0.55), 35.62, 0.34)
+put(drums, impact(), 36.0, 0.95); put(send, crash(), 36.0, 0.24)
+put(fx, tick(), 36.42, 0.5)
 for i, m in enumerate((84, 88, 91, 96)):
-    put(music, bell(m, 2.2), 28.5 + i * 0.035, 0.26); put(send, bell(m, 2.2), 28.5 + i * 0.035, 0.3)
+    put(music, bell(m, 2.2), 36.5 + i * 0.035, 0.26); put(send, bell(m, 2.2), 36.5 + i * 0.035, 0.3)
 for i, m in enumerate((72, 76, 79, 84, 79, 76)):
-    put(music, pluck(m, 0.8, 0.18), 29.0 + i * 0.25, 0.20 - i * 0.02, pan=(-1) ** i * 0.4); put(send, pluck(m, 0.8, 0.18), 29.0 + i * 0.25, 0.16)
-put(music, bell(96, 2.0), 30.0, 0.16); put(send, bell(96, 2.0), 30.0, 0.2)
+    put(music, pluck(m, 0.8, 0.18), 37.0 + i * 0.25, 0.20 - i * 0.02, pan=(-1) ** i * 0.4); put(send, pluck(m, 0.8, 0.18), 37.0 + i * 0.25, 0.16)
+put(music, bell(96, 2.0), 38.0, 0.16); put(send, bell(96, 2.0), 38.0, 0.2)
 
 # ---------------- mix ----------------
 t_all = np.arange(N + TAIL) / SR

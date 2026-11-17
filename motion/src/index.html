@@ -129,6 +129,33 @@ html,body{height:100%;background:#000;overflow:hidden}
   border:2px solid rgba(255,255,255,.2);opacity:0;white-space:nowrap}
 .chip b{color:var(--tealb);font-weight:800;margin-left:12px}
 
+.chip i{font-style:normal;color:#B7A6CF;font-weight:600}
+/* ---------- S5b quality ---------- */
+#s5b .ttl{position:absolute;left:0;width:1920px;top:92px;text-align:center;font-size:66px;font-weight:800;letter-spacing:-.05em;white-space:nowrap}
+#s5b .donut{position:absolute;left:170px;top:236px;width:540px;height:540px;opacity:0}
+#s5b .donut svg{position:absolute;inset:0;width:100%;height:100%}
+#s5b .trk{fill:none;stroke:rgba(255,255,255,.12);stroke-width:46}
+#s5b .arc{fill:none;stroke:var(--tealb);stroke-width:46;stroke-linecap:round}
+#s5b .dn{position:absolute;left:0;width:540px;top:180px;text-align:center;font-size:128px;font-weight:800;letter-spacing:-.05em;line-height:1}
+#s5b .dn span{font-size:60px;margin-left:4px;letter-spacing:0}
+#s5b .dl{position:absolute;left:0;width:540px;top:326px;text-align:center;font-size:32px;font-weight:700;letter-spacing:.2em;color:#CDBBE6}
+#s5b .dsub{position:absolute;left:170px;width:540px;top:800px;text-align:center;font-size:34px;font-weight:600;color:#D9CCEC;opacity:0}
+#s5b .fl{position:absolute;left:822px;top:296px;font-size:36px;font-weight:700;letter-spacing:.28em;color:#CDBBE6;opacity:0}
+#s5b .fn{position:absolute;left:806px;top:350px;font-size:270px;font-weight:800;letter-spacing:-.06em;line-height:1;white-space:nowrap;opacity:0;transform-origin:0 60%}
+#s5b .fn small{font-size:100px;letter-spacing:-.03em;margin-left:14px}
+#s5b .fbb{position:absolute;left:822px;top:654px;background:#fff;color:var(--blue);opacity:0}
+#s5b .strip{position:absolute;left:0;width:1920px;top:900px;display:flex;justify-content:center;gap:28px}
+#s5b .strip span{font-size:40px;font-weight:700;letter-spacing:-.03em;padding:14px 32px;border-radius:20px;background:rgba(255,255,255,.09);
+  border:2px solid rgba(255,255,255,.2);opacity:0;white-space:nowrap}
+/* ---------- S8a closing statement ---------- */
+#net{position:absolute;left:0;top:0;width:1920px;height:1080px}
+#net line{stroke:rgba(255,255,255,.3);stroke-width:3;stroke-linecap:round}
+#net circle{fill:#fff}
+#s8a .cl{position:absolute;left:160px;top:150px;font-size:134px;font-weight:800;letter-spacing:-.055em;line-height:1.3;white-space:nowrap}
+#s8a .cl div{opacity:0;transform-origin:0 60%}
+#s8a .cl b{color:var(--tealb);font-weight:800}
+#s8a .fn{position:absolute;left:168px;top:880px;font-size:28px;font-weight:600;letter-spacing:.22em;color:#CDBBE6;opacity:0}
+
 /* ---------- S6 cards ---------- */
 #s6 .pers{position:absolute;inset:0;perspective:1700px}
 #grid{position:absolute;left:118px;top:276px;width:1684px;height:528px;transform-origin:50% 50%}
@@ -211,7 +238,7 @@ html,body{height:100%;background:#000;overflow:hidden}
 <!-- S2 : logo -->
 <section class="scene dark" id="s2">
   <div class="glow"></div>
-  <div class="yr">2026 운영 성과</div>
+  <div class="yr">2026 · 한 해의 기록</div>
   <div class="lock">
     <div class="tog"><div class="on"></div><div class="ring"></div><div class="knob"></div></div>
     <div class="name" id="name2">서울온라인학교</div>
@@ -244,8 +271,23 @@ html,body{height:100%;background:#000;overflow:hidden}
   <div class="badge b1">+70%</div>
   <div class="h1">1학기 수강 학생</div>
   <div class="big"><span id="s5big">823</span><small>명</small></div>
-  <div class="badge b2">전년 823명 → +44%</div>
-  <div class="chips"><div class="chip">개설 강좌 107<b>+75%</b></div><div class="chip">참여 교사 36명<b>3.3배</b></div></div>
+  <div class="badge b2">2025 823명 → +44%</div>
+  <div class="chips"><div class="chip">개설 강좌 <i>61 →</i> 107<b>+75%</b></div><div class="chip">참여 교사 <i>11 →</i> 36명<b>3.3배</b></div></div>
+</section>
+
+<!-- S5b : quality of teaching -->
+<section class="scene dark" id="s5b">
+  <div class="ttl">온라인이지만, 더 가까운 수업.</div>
+  <div class="donut">
+    <svg viewBox="0 0 540 540"><circle class="trk" cx="270" cy="270" r="210"/><circle class="arc" id="arc" cx="270" cy="270" r="210" transform="rotate(-90 270 270)"/></svg>
+    <div class="dn"><b id="q1">0.0</b><span>%</span></div>
+    <div class="dl">1학기 이수율</div>
+  </div>
+  <div class="dsub">1,199명 중 1,141명 이수</div>
+  <div class="fl">과제 첨삭 · 피드백</div>
+  <div class="fn"><span id="q2">0</span><small>회</small></div>
+  <div class="badge fbb">학생 1인당 12.2회</div>
+  <div class="strip"><span>전 과목 과정중심평가 100%</span><span>전 강좌 실시간 쌍방향 수업</span></div>
 </section>
 
 <!-- S6 : highlight cards -->
@@ -257,14 +299,21 @@ html,body{height:100%;background:#000;overflow:hidden}
 <!-- S7 : 2027 -->
 <section class="scene" id="s7">
   <div class="rings"></div>
-  <div class="lb">2027 주문형 교육과정 · 참여 학교</div>
+  <div class="lb">주문형 교육과정 · 2027 개설 확정 학교</div>
   <div class="n24">24</div>
-  <div class="cap" id="cap26" style="left:235px">2026학년도</div>
+  <div class="cap" id="cap26" style="left:235px">2026 참여</div>
   <svg class="arrow" viewBox="0 0 170 60"><path id="arr" d="M4 30 H150 M124 6 L152 30 L124 54" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>
   <div class="n46">46<small>교</small></div>
   <div id="sqs"></div>
-  <div class="chips"><div class="chip"><b>36</b>개 과목</div><div class="chip"><b>106</b>건 개설 확정</div><div class="chip"><b>162</b>개 분반</div></div>
-  <div class="ln" id="ln7">늘어난 수요를 지속 가능한 운영으로</div>
+  <div class="chips"><div class="chip"><b>36</b>개 과목</div><div class="chip"><b>106</b>건 개설 확정</div><div class="chip"><b>156</b>개 학급</div></div>
+  <div class="ln" id="ln7">내년, 46개 학교가 주문형 강좌를 엽니다</div>
+</section>
+
+<!-- S8a : closing statement -->
+<section class="scene dark" id="s8a">
+  <svg id="net" viewBox="0 0 1920 1080"></svg>
+  <div class="cl"><div><b id="c1">0</b>개 학교와</div><div><b id="c2">0</b>명의 학생과</div><div><b id="c3">0</b>번의 피드백으로</div><div>연결되었습니다.</div></div>
+  <div class="fn">2026학년도 1학기 기준</div>
 </section>
 
 <!-- S8 : end card -->
@@ -283,14 +332,14 @@ html,body{height:100%;background:#000;overflow:hidden}
 <div id="hud">
   <i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i>
   <div class="top"><span class="lv"><i></i><i></i><i></i><i></i></span><span>SEOUL ONLINE SCHOOL</span><span>120 BPM</span><span class="beat"></span></div>
-  <div class="botl" id="hudsc">SC 01 / 08</div>
+  <div class="botl" id="hudsc">SC 01 / 10</div>
   <div class="bot"><span>2026 REPORT</span><span id="hudtc">00:00:00:00</span></div>
 </div>
 </div>
 
 <script src="../node_modules/gsap/dist/gsap.min.js"></script>
 <script>
-const DUR = 32, FPS = 60;
+const DUR = 40, FPS = 60;
 const Q = s => document.querySelector(s), QA = s => [...document.querySelectorAll(s)];
 const RENDER = new URLSearchParams(location.search).has('render');
 function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
@@ -337,18 +386,18 @@ const DOTS=[];(function(){const R=rng(7);for(let i=0;i<168;i++){const c=i%24,r=M
 // S6 cards
 const AVC=['#3BDCCB','#F2788F','#641C84','#FFD25E','#DCC8F1','#A8ECE3','#FFD3DB','#3BDCCB','#FFD25E','#F2788F','#DCC8F1'];
 const CARDS_HTML=[
- ['c-festa',`<div class="tag">과제 3 · 메타버스 학술제</div><h3>서<em>ON</em>러닝페스타</h3><p>AI 시대, 삶의 주도권을 가지는 힘</p>
+ ['c-festa',`<div class="tag">제2회 · 메타버스 학술제</div><h3>서<em>ON</em>러닝페스타</h3><p>AI 시대, 삶의 주도권을 가지는 힘</p>
    <p style="margin-top:8px;opacity:.6">ZEP · 10. 27.–11. 6.</p><div class="av">${AVC.map(c=>`<i style="background:${c}"></i>`).join('')}</div>`],
  ['c-xr',`<div class="tag">과제 4 · 미래형 교육환경</div><h3>XR 스튜디오<br>총 50실</h3><p>테크센터 · 콘텐츠제작실 · 온이음</p>
    <svg class="gfx" style="right:-10px;bottom:-10px" width="430" height="330" viewBox="0 0 430 330" fill="none" stroke="#641C84" stroke-width="4" stroke-linejoin="round">
    <g opacity=".35"><path d="M0 330 L215 150 L430 330 M70 330 L215 150 L360 330 M145 330 L215 150 L285 330 M30 305 H400 M68 273 H362 M104 243 H326 M136 216 H294"/></g>
    <path d="M215 60 L315 110 V215 L215 265 L115 215 V110 Z M215 160 L315 110 M215 160 L115 110 M215 160 V265" stroke-width="6"/><circle cx="215" cy="160" r="9" fill="#F2788F" stroke="none"/></svg>`],
- ['c-intl',`<div class="tag">국제공동수업 · 6. 13.</div><h3>서울 ↔ 인도네시아</h3><p>SMAN 13 Kupang · SMAN 2 Mataram</p>
+ ['c-intl',`<div class="tag">국제공동수업 · 2025 1회 → 2026 3차</div><h3>서울 ↔ 인도네시아</h3><p>SMAN 13 Kupang · SMAN 2 Mataram</p>
    <svg class="gfx" style="left:62px;bottom:44px" width="756" height="190" viewBox="0 0 756 190" fill="none">
    <path d="M40 150 Q378 -90 716 150" stroke="#fff" stroke-width="6" stroke-dasharray="4 18" stroke-linecap="round"/>
    <circle cx="40" cy="150" r="22" fill="#641C84"/><circle cx="716" cy="150" r="22" fill="#fff" stroke="#641C84" stroke-width="8"/>
    <circle cx="378" cy="30" r="13" fill="#FFD25E"/></svg>`],
- ['c-q',`<div class="tag">선도학교</div><h3>질문하는 학교</h3><p>디지털 기반 질문 수업 · 교원 17명</p>
+ ['c-q',`<div class="tag">교육부 선도학교</div><h3>질문하는 학교</h3><p>디지털 기반 질문 수업 · 교원 17명</p>
    <div class="gfx" style="right:44px;bottom:-96px;font-size:520px;font-weight:800;line-height:1;color:#3BDCCB;letter-spacing:-.05em">?</div>`],
  ['c-sat',`<div class="tag">교육환경 만족도</div><div class="huge">93%</div><p>‘업무·수업·학습에 도움 된다’</p>
    <div class="gfx" style="left:62px;right:62px;bottom:58px;height:26px;border-radius:13px;background:#EDE8F3"><div style="width:93%;height:100%;border-radius:13px;background:#05ADA0"></div></div>`],
@@ -357,16 +406,27 @@ const CARDS_HTML=[
    <g transform="translate(90 120) scale(1.5)"><path d="M0-46 L11-14 45-14 18 6 28 38 0 18 -28 38 -18 6 -45-14 -11-14Z" fill="#3BDCCB"/></g>
    <g transform="translate(230 90) scale(2.1)"><path d="M0-46 L11-14 45-14 18 6 28 38 0 18 -28 38 -18 6 -45-14 -11-14Z" fill="#FFD25E"/></g>
    <g transform="translate(360 140) scale(1.2)"><path d="M0-46 L11-14 45-14 18 6 28 38 0 18 -28 38 -18 6 -45-14 -11-14Z" fill="#F2788F"/></g></svg>`],
- ['c-sea',`<div class="tag">여름 계절학기</div><div class="huge">135<span style="font-size:.5em;letter-spacing:-.03em">명</span></div><p>53개교 · 3과목 · 7. 22.–8. 6.</p>
+ ['c-sea',`<div class="tag">여름 계절학기 · 신설</div><div class="huge">135<span style="font-size:.5em;letter-spacing:-.03em">명</span></div><p>53개교 · 3과목 · 7. 22.–8. 6.</p>
    <svg class="gfx" style="right:44px;top:44px" width="250" height="250" viewBox="-125 -125 250 250" stroke="#641C84" stroke-width="10" stroke-linecap="round" fill="none">
    <circle r="48" fill="#FFD25E" stroke="none"/>${[...Array(12)].map((_,i)=>`<path d="M0-74 V-104" transform="rotate(${i*30})"/>`).join('')}</svg>`],
- ['c-koi',`<div class="tag">방문과 교류 · 5. 19.</div><h3>KOICA 연수단</h3><p>아프리카 7개국 · 17명</p>
+ ['c-koi',`<div class="tag">찾아온 학교</div><h3>배우러 오는 학교</h3><p>KOICA 7개국 17명 · 울산·인천온라인학교</p>
    <svg class="gfx" style="right:50px;bottom:40px" width="250" height="250" viewBox="-125 -125 250 250" stroke="#24113B" stroke-width="6" fill="none">
    <circle r="112"/><ellipse rx="52" ry="112"/><path d="M-112 0 H112 M-97-56 H97 M-97 56 H97 M0-112 V112"/></svg>`],
 ];
 const CARDS=CARDS_HTML.map(([c,h])=>{const e=el('div','card '+c,h);Q('#grid').appendChild(e);return e});
 const GS=400/880, slot=i=>({x:(i%4)*428,y:Math.floor(i/4)*278});
 const HERO={x:-126,y:-321,scale:2.2,borderRadius:0};
+
+// S8a network (연결)
+const NET={n:[],l:[]};(function(){const R=rng(23),svg=Q('#net'),NS='http://www.w3.org/2000/svg',P=[];let g=0;
+  while(P.length<26&&g++<9000){const x=1440+R()*400,y=130+R()*820;if(P.every(q=>Math.hypot(q.x-x,q.y-y)>94))P.push({x,y})}
+  P.sort((a,b)=>(a.y+a.x*.35)-(b.y+b.x*.35));const seen=new Set();
+  P.forEach((a,i)=>{P.map((q,j)=>({j,d:Math.hypot(a.x-q.x,a.y-q.y)})).filter(o=>o.j!==i).sort((u,v)=>u.d-v.d).slice(0,2).forEach(o=>{
+    const lo=Math.min(i,o.j),hi=Math.max(i,o.j),k=lo+'-'+hi;if(seen.has(k))return;seen.add(k);
+    const ln=document.createElementNS(NS,'line');ln.setAttribute('x1',P[lo].x);ln.setAttribute('y1',P[lo].y);ln.setAttribute('x2',P[hi].x);ln.setAttribute('y2',P[hi].y);
+    ln.setAttribute('stroke-dasharray',o.d);ln.setAttribute('stroke-dashoffset',o.d);svg.appendChild(ln);NET.l.push({e:ln,i:hi})})});
+  P.forEach((a,i)=>{const c=document.createElementNS(NS,'circle');c.setAttribute('cx',a.x);c.setAttribute('cy',a.y);c.setAttribute('r',0);
+    if(i%4===1)c.style.fill='#3BDCCB';svg.appendChild(c);NET.n.push({e:c,r:i%5===0?15:9})})})();
 
 // S7
 (function(){const rg=Q('#s7 .rings');for(let i=1;i<=7;i++){const r=i*190;const e=el('i');e.style.cssText=`width:${r*2}px;height:${r*2}px;left:${-r}px;top:${-r}px`;rg.appendChild(e)}
@@ -375,7 +435,7 @@ const SQ=QA('#s7 .sq');
 
 /* ================= timeline ================= */
 const tl=gsap.timeline({paused:true});
-const st={bx:0,by:0,s4cnt:1,s5n:99,s5big:823};   // proxy state rendered in frame()
+const st={bx:0,by:0,s4cnt:1,s5n:99,s5big:823,q1:0,q2:0,c1:0,c2:0,c3:0};   // proxy state rendered in frame()
 const vis=(sel,a,b)=>{tl.set(sel,{visibility:'visible'},a);if(b<DUR)tl.set(sel,{visibility:'hidden'},b)};
 function whip(T,a,b,o={}){const axis=o.axis||'x',dir=o.dir||1,h=o.h||.34,dist=axis==='x'?1920:1080,k=axis==='x'?'bx':'by',amt=o.amt||90;
   tl.set(b,{visibility:'visible',[axis]:dist*dir},T-h);
@@ -469,81 +529,113 @@ function build(){
   /* ---------- S5 (16 – 20) ---------- */
 
   const d0=DOTS.slice(0,99).map(d=>d.e),d1=DOTS.slice(99).map(d=>d.e);
-  gsap.set(d1,{opacity:.16});
+  gsap.set(d1,{opacity:.16});gsap.set(d0,{backgroundColor:'#9E8CB8'});gsap.set('#s5 .g2 .n',{color:'#B7A6CF'});
   tl.fromTo(d0,{opacity:0,scale:0},{opacity:1,scale:1,duration:.3,ease:'back.out(2.5)',stagger:{each:.0042}},16.12)
     .fromTo('#s5 .g1',{opacity:0,x:-30},{opacity:1,x:0,duration:.4,ease:'expo.out'},16.15)
     .fromTo('#s5 .g2',{opacity:0,y:50},{opacity:1,y:0,duration:.45,ease:'expo.out'},16.2)
     .to(d1,{opacity:1,backgroundColor:'#3BDCCB',duration:.25,stagger:{each:.0065}},17.0)
     .fromTo(d1,{scale:.2},{scale:1,duration:.4,ease:'back.out(3)',stagger:{each:.0065},immediateRender:false},17.0)
     .to(st,{s5n:168,duration:.5,ease:'power2.out'},17.0)
-    .set('#s5yr',{textContent:'2026',color:'#3BDCCB'},17.0)
+    .set('#s5yr',{textContent:'2026',color:'#fff'},17.0)
+    .to(d0,{backgroundColor:'#fff',duration:.3},17.0)
+    .to('#s5 .g2 .n',{color:'#fff',duration:.3},17.0)
     .fromTo('#s5 .b1',{opacity:0,scale:.3,rotation:-14},{opacity:1,scale:1,rotation:-4,duration:.45,ease:'back.out(2.4)'},17.5);
   // scatter into the big number
   DOTS.forEach(d=>tl.to(d.e,{x:d.tx,y:d.ty,scale:d.s,opacity:d.o,duration:.9,ease:'expo.out'},18.0));
   tl.to(['#s5 .g1','#s5 .g2','#s5 .b1'],{opacity:0,y:-70,filter:'blur(10px)',duration:.25,ease:'power2.in'},17.86)
     .fromTo('#s5 .big',{opacity:0,scale:2.1,filter:'blur(24px)'},{opacity:1,scale:1,filter:'blur(0px)',duration:.5,ease:'expo.out'},18.0)
     .to(st,{s5big:1184,duration:.95,ease:'power3.out'},18.0)
+    .fromTo('#s5big',{color:'#B7A6CF'},{color:'#fff',duration:.8,ease:'power2.in'},18.0)
     .fromTo('#s5 .h1',{opacity:0,y:30},{opacity:1,y:0,duration:.4,ease:'expo.out'},18.1)
     .fromTo('#s5 .b2',{opacity:0,xPercent:-50,scale:.3},{opacity:1,xPercent:-50,scale:1,duration:.45,ease:'back.out(2.2)'},18.5)
     .fromTo('#s5 .chip',{opacity:0,y:60},{opacity:1,y:0,duration:.45,ease:'expo.out',stagger:.25},19.0)
     .fromTo('#dots',{rotation:0},{rotation:5,duration:2,ease:'none',transformOrigin:'960px 540px',immediateRender:false},18.0);
-  whip(20,'#s5','#s6');
+  whip(20,'#s5','#s5b');
 
-  /* ---------- S6 (20 – 24) ---------- */
-  tl.set('#s6',{visibility:'hidden'},24);
-  [0,1,2].forEach(i=>{const c=CARDS[i],t=20+i*.5;
+  /* ---------- S5b (20 – 24) : 수업의 질 ---------- */
+  const TT=splitChars(Q('#s5b .ttl'));gsap.set(TT,{yPercent:120});
+  const ARC=2*Math.PI*210;gsap.set('#arc',{strokeDasharray:ARC,strokeDashoffset:ARC});
+  tl.to(TT,{yPercent:0,duration:.55,ease:'expo.out',stagger:.02},20.1)
+    .fromTo('#s5b .donut',{opacity:0,scale:.7},{opacity:1,scale:1,duration:.6,ease:'expo.out'},20.1)
+    .to('#arc',{strokeDashoffset:ARC*(1-.952),duration:1.15,ease:'power3.inOut'},20.15)
+    .to(st,{q1:95.2,duration:1.15,ease:'power3.inOut'},20.15)
+    .fromTo('#s5b .dsub',{opacity:0,y:24},{opacity:1,y:0,duration:.4,ease:'expo.out'},20.8)
+    .fromTo('#s5b .fl',{opacity:0,x:40},{opacity:1,x:0,duration:.4,ease:'expo.out'},21.0)
+    .fromTo('#s5b .fn',{opacity:0,scale:1.5,filter:'blur(22px)'},{opacity:1,scale:1,filter:'blur(0px)',duration:.5,ease:'expo.out'},21.0)
+    .to(st,{q2:14653,duration:.95,ease:'power4.out'},21.0)
+    .fromTo('#s5b .fbb',{opacity:0,scale:.3,rotation:-10},{opacity:1,scale:1,rotation:-3,duration:.45,ease:'back.out(2.3)'},22.0)
+    .fromTo('#s5b .strip span',{opacity:0,y:40},{opacity:1,y:0,duration:.45,ease:'expo.out',stagger:.25},22.5);
+  whip(24,'#s5b','#s6');
+
+  /* ---------- S6 (24 – 28) ---------- */
+  tl.set('#s6',{visibility:'hidden'},28);
+  [0,1,2].forEach(i=>{const c=CARDS[i],t=24+i*.5;
     gsap.set(c,{...HERO,zIndex:10+i});
     tl.set(c,{visibility:'visible'},t);
-    if(i>0)tl.fromTo(c,{x:HERO.x-53,y:HERO.y-33,scale:2.32},{...HERO,duration:.45,ease:'expo.out',immediateRender:false},t);
-    else tl.fromTo(c,{x:HERO.x-53,y:HERO.y-33,scale:2.32},{...HERO,duration:.6,ease:'expo.out',immediateRender:false},t);
+    tl.fromTo(c,{x:HERO.x-53,y:HERO.y-33,scale:2.32},{...HERO,duration:i?.45:.6,ease:'expo.out',immediateRender:false},t);
     if(i<2)tl.set(c,{visibility:'hidden'},t+.5)});
   const grid=Q('#grid');
-  tl.to(CARDS[2],{...slot(2),scale:GS,borderRadius:38,duration:.8,ease:'expo.inOut'},21.5)
-    .set([CARDS[0],CARDS[1]],{zIndex:1,borderRadius:38},21.5);
+  tl.to(CARDS[2],{...slot(2),scale:GS,borderRadius:38,duration:.8,ease:'expo.inOut'},25.5)
+    .set([CARDS[0],CARDS[1]],{zIndex:1,borderRadius:38},25.5);
   CARDS.forEach((c,i)=>{if(i===2)return;const s=slot(i),cx=(i%4)-1.5,cy=Math.floor(i/4)-.5;
-    tl.fromTo(c,{x:s.x+cx*1100,y:s.y+cy*1300,scale:GS*1.5,visibility:'visible'},{x:s.x,y:s.y,scale:GS,duration:.85,ease:'expo.out',immediateRender:false},21.62+Math.abs(cx)*.04)});
-  tl.to(grid,{rotationX:34,rotationZ:-9,scale:.9,duration:.8,ease:'expo.inOut'},21.5)
-    .to(grid,{rotationX:0,rotationZ:0,scale:1,duration:1.35,ease:'power2.inOut'},22.3)
-    .fromTo('#s6 .pill',{opacity:0,scale:.5},{opacity:1,scale:1,duration:.4,ease:'back.out(2.2)'},22.0)
-    .to('#s6 .pill',{scale:1.05,duration:1.5,ease:'none'},22.4);
-  // blue wipe
-  tl.set('#wipe',{visibility:'visible',x:-3300,skewX:-18},23.6).to('#wipe',{x:-420,duration:.4,ease:'power3.in'},23.6).set('#wipe',{visibility:'hidden'},24.0);
+    tl.fromTo(c,{x:s.x+cx*1100,y:s.y+cy*1300,scale:GS*1.5,visibility:'visible'},{x:s.x,y:s.y,scale:GS,duration:.85,ease:'expo.out',immediateRender:false},25.62+Math.abs(cx)*.04)});
+  tl.to(grid,{rotationX:34,rotationZ:-9,scale:.9,duration:.8,ease:'expo.inOut'},25.5)
+    .to(grid,{rotationX:0,rotationZ:0,scale:1,duration:1.35,ease:'power2.inOut'},26.3)
+    .fromTo('#s6 .pill',{opacity:0,scale:.5},{opacity:1,scale:1,duration:.4,ease:'back.out(2.2)'},26.0)
+    .to('#s6 .pill',{scale:1.05,duration:1.5,ease:'none'},26.4);
+  // purple wipe
+  tl.set('#wipe',{visibility:'visible',x:-3300,skewX:-18},27.6).to('#wipe',{x:-420,duration:.4,ease:'power3.in'},27.6).set('#wipe',{visibility:'hidden'},28.0);
 
-  /* ---------- S7 (24 – 28) ---------- */
-  vis('#s7',24,28.3);
-  tl.fromTo('#s7 .rings i',{scale:.2,opacity:0},{scale:1,opacity:1,duration:1.4,ease:'expo.out',stagger:.05},24.0)
-    .to('#s7 .rings',{scale:1.12,duration:4,ease:'none'},24.0)
-    .fromTo('#s7 .lb',{opacity:0,letterSpacing:'.7em'},{opacity:.9,letterSpacing:'.3em',duration:.55,ease:'expo.out'},24.05)
-    .fromTo('#s7 .n24',{opacity:0,scale:1.9,filter:'blur(22px)'},{opacity:1,scale:1,filter:'blur(0px)',duration:.5,ease:'expo.out'},24.0)
-    .to('#s7 .n24',{x:-575,scale:.42,opacity:.55,duration:.42,ease:'expo.inOut'},24.62)
-    .fromTo('#cap26',{opacity:0},{opacity:.7,duration:.3},24.95)
-    .fromTo('#arr',{strokeDasharray:260,strokeDashoffset:260},{strokeDashoffset:0,duration:.35,ease:'power2.out'},24.85)
-    .fromTo('#s7 .n46',{opacity:0,scale:2.4,filter:'blur(26px)'},{opacity:1,scale:1,filter:'blur(0px)',duration:.5,ease:'expo.out'},25.0)
-    .fromTo(SQ.slice(0,24),{opacity:0,scale:0},{opacity:1,scale:1,duration:.3,ease:'back.out(2)',stagger:.008},24.3)
-    .fromTo(SQ.slice(24),{opacity:0,scale:0,y:-30},{opacity:1,scale:1,y:0,backgroundColor:'#3BDCCB',duration:.4,ease:'back.out(3)',stagger:.018},25.05)
-    .fromTo('#s7 .chip',{opacity:0,y:50,scale:.8},{opacity:1,y:0,scale:1,duration:.42,ease:'back.out(1.8)',stagger:.5},25.5);
+  /* ---------- S7 (28 – 32) ---------- */
+  tl.set('#s7',{visibility:'visible'},28);
+  tl.fromTo('#s7 .rings i',{scale:.2,opacity:0},{scale:1,opacity:1,duration:1.4,ease:'expo.out',stagger:.05},28.0)
+    .to('#s7 .rings',{scale:1.12,duration:4,ease:'none'},28.0)
+    .fromTo('#s7 .lb',{opacity:0,letterSpacing:'.7em'},{opacity:.9,letterSpacing:'.3em',duration:.55,ease:'expo.out'},28.05)
+    .fromTo('#s7 .n24',{opacity:0,scale:1.9,filter:'blur(22px)'},{opacity:1,scale:1,filter:'blur(0px)',duration:.5,ease:'expo.out'},28.0)
+    .to('#s7 .n24',{x:-575,scale:.42,opacity:.55,duration:.42,ease:'expo.inOut'},28.62)
+    .fromTo('#cap26',{opacity:0},{opacity:.7,duration:.3},28.95)
+    .fromTo('#arr',{strokeDasharray:260,strokeDashoffset:260},{strokeDashoffset:0,duration:.35,ease:'power2.out'},28.85)
+    .fromTo('#s7 .n46',{opacity:0,scale:2.4,filter:'blur(26px)'},{opacity:1,scale:1,filter:'blur(0px)',duration:.5,ease:'expo.out'},29.0)
+    .fromTo(SQ.slice(0,24),{opacity:0,scale:0},{opacity:.55,scale:1,duration:.3,ease:'back.out(2)',stagger:.008},28.3)
+    .fromTo(SQ.slice(24),{opacity:0,scale:0,y:-30},{opacity:1,scale:1,y:0,backgroundColor:'#3BDCCB',duration:.4,ease:'back.out(3)',stagger:.018},29.05)
+    .to(SQ.slice(0,24),{opacity:1,duration:.3},29.05)
+    .fromTo('#s7 .chip',{opacity:0,y:50,scale:.8},{opacity:1,y:0,scale:1,duration:.42,ease:'back.out(1.8)',stagger:.5},29.5);
   const L7=splitChars(Q('#ln7'));gsap.set(L7,{yPercent:120});
-  tl.to(L7,{yPercent:0,duration:.5,ease:'expo.out',stagger:.018},26.95);
+  tl.to(L7,{yPercent:0,duration:.5,ease:'expo.out',stagger:.018},30.95);
+  whip(32,'#s7','#s8a',{axis:'y',amt:70});
 
-  /* ---------- S8 (28 – 32) ---------- */
-  vis('#s8',27.7,DUR);
+  /* ---------- S8a (32 – 36) : 연결되었습니다 ---------- */
+  const CL=QA('#s8a .cl > div'),CT=[32.14,33.0,34.0,35.0];
+  CL.forEach((l,i)=>tl.fromTo(l,i<3?{opacity:0,y:70,filter:'blur(16px)'}:{opacity:0,scale:1.35,filter:'blur(18px)'},
+    {opacity:1,y:0,scale:1,filter:'blur(0px)',duration:.48,ease:'expo.out'},CT[i]));
+  tl.to(st,{c1:168,duration:.7,ease:'power3.out'},CT[0]).to(st,{c2:1184,duration:.75,ease:'power3.out'},CT[1]).to(st,{c3:14653,duration:.8,ease:'power3.out'},CT[2])
+    .fromTo('#s8a .fn',{opacity:0},{opacity:1,duration:.4},34.4);
+  NET.n.forEach((n,i)=>tl.to(n.e,{attr:{r:n.r},duration:.4,ease:'back.out(3)'},32.2+i/26*2.6));
+  NET.l.forEach(l=>tl.to(l.e,{strokeDashoffset:0,duration:.4,ease:'power2.out'},32.25+l.i/26*2.6));
+  tl.to(NET.l.map(l=>l.e),{stroke:'#3BDCCB',duration:.35,ease:'power2.out'},35.0)
+    .to(NET.n.map(n=>n.e),{attr:{r:'+=5'},duration:.16,yoyo:true,repeat:1,ease:'sine.inOut',stagger:.006},35.0)
+    .fromTo('#net',{scale:1},{scale:1.06,duration:3.8,ease:'none',transformOrigin:'1640px 540px',immediateRender:false},32.1);
+
+  /* ---------- S8 (36 – 40) ---------- */
+  tl.set('#s8',{visibility:'visible'},35.7);
   const n8=splitChars(Q('#name8'));gsap.set(n8,{yPercent:118});n8.slice(2,5).forEach(c=>c.style.color='#05ADA0');gsap.set('#s8 .tog',{scale:0});
-  tl.to('#s8',{clipPath:'circle(1300px at 960px 540px)',duration:.55,ease:'expo.inOut'},27.72)
-    .to('#s8 .tog',{scale:1,duration:.5,ease:'back.out(2)'},28.0)
-    .to(n8,{yPercent:0,duration:.6,ease:'expo.out',stagger:.035},28.08)
-    .to('#s8 .knob',{x:108,duration:.3,ease:'power4.inOut'},28.42)
-    .to('#s8 .on',{opacity:1,duration:.22},28.5)
-    .fromTo('#s8 .ring',{opacity:.9,scale:1},{opacity:0,scale:2.3,duration:.7,ease:'expo.out',immediateRender:false},28.52)
-    .fromTo('#s8 .tagl span',{opacity:0,y:36,filter:'blur(10px)'},{opacity:1,y:0,filter:'blur(0px)',duration:.45,ease:'expo.out',stagger:.09},29.0)
-    .fromTo('#s8 .cta .p',{opacity:0,scale:.5},{opacity:1,scale:1,duration:.42,ease:'back.out(2.2)'},30.0)
-    .fromTo('#s8 .cta .t',{opacity:0,x:-24},{opacity:1,x:0,duration:.42,ease:'expo.out'},30.15)
-    .fromTo('#s8 .lock',{scale:1},{scale:1.03,duration:3.9,ease:'sine.out',immediateRender:false},28.1);
+  tl.to('#s8',{clipPath:'circle(1300px at 960px 540px)',duration:.55,ease:'expo.inOut'},35.72)
+    .set('#s8a',{visibility:'hidden'},36.4)
+    .to('#s8 .tog',{scale:1,duration:.5,ease:'back.out(2)'},36.0)
+    .to(n8,{yPercent:0,duration:.6,ease:'expo.out',stagger:.035},36.08)
+    .to('#s8 .knob',{x:108,duration:.3,ease:'power4.inOut'},36.42)
+    .to('#s8 .on',{opacity:1,duration:.22},36.5)
+    .fromTo('#s8 .ring',{opacity:.9,scale:1},{opacity:0,scale:2.3,duration:.7,ease:'expo.out',immediateRender:false},36.52)
+    .fromTo('#s8 .tagl span',{opacity:0,y:36,filter:'blur(10px)'},{opacity:1,y:0,filter:'blur(0px)',duration:.45,ease:'expo.out',stagger:.09},37.0)
+    .fromTo('#s8 .cta .p',{opacity:0,scale:.5},{opacity:1,scale:1,duration:.42,ease:'back.out(2.2)'},38.0)
+    .fromTo('#s8 .cta .t',{opacity:0,x:-24},{opacity:1,x:0,duration:.42,ease:'expo.out'},38.15)
+    .fromTo('#s8 .lock',{scale:1},{scale:1.03,duration:3.9,ease:'sine.out',immediateRender:false},36.1);
   tl.to({},{duration:.001},DUR-.001);
 }
 
 /* ================= per-frame (pure function of t) ================= */
 const mbn=Q('#mbn'),world=Q('#world'),hudtc=Q('#hudtc'),hudsc=Q('#hudsc'),lv=QA('#hud .lv i'),beat=Q('#hud .beat');
-const SC=[0,6,8,12,16,20,24,28];const p2=n=>String(n).padStart(2,'0');
+const SC=[0,6,8,12,16,20,24,28,32,36];const p2=n=>String(n).padStart(2,'0');
 let lastF='';
 function frame(t){
   // motion blur
@@ -552,7 +644,7 @@ function frame(t){
   if(f!==lastF){world.style.filter=f;lastF=f}
   // HUD
   const fr=Math.round(t*FPS);hudtc.textContent=`00:00:${p2(Math.floor(fr/FPS))}:${p2(fr%FPS)}`;
-  let sc=1;SC.forEach((s,i)=>{if(t>=s)sc=i+1});hudsc.textContent=`SC ${p2(sc)} / 08`;
+  let sc=1;SC.forEach((s,i)=>{if(t>=s)sc=i+1});hudsc.textContent=`SC ${p2(sc)} / 10`;
   const bp=(t*2)%1;beat.style.opacity=(1-bp*.85).toFixed(3);
   lv.forEach((b,i)=>{b.style.transform=`scaleY(${(.3+.7*Math.abs(Math.sin(t*Math.PI*2*(1+i*.37)+i*1.7))*(1-bp*.5)).toFixed(3)})`});
   // S4 list
@@ -571,6 +663,8 @@ function frame(t){
   }
   // S5 counters
   if(t>=15.5&&t<20.5){Q('#s5n').textContent=Math.round(st.s5n);Q('#s5big').textContent=Math.round(st.s5big).toLocaleString('en-US')}
+  if(t>=19.5&&t<24.5){Q('#q1').textContent=st.q1.toFixed(1);Q('#q2').textContent=Math.round(st.q2).toLocaleString('en-US')}
+  if(t>=31.5&&t<36.5){Q('#c1').textContent=Math.round(st.c1);Q('#c2').textContent=Math.round(st.c2).toLocaleString('en-US');Q('#c3').textContent=Math.round(st.c3).toLocaleString('en-US')}
 }
 function seek(t){t=clamp(t,0,DUR);tl.seek(t,false);frame(t)}
 window.__seek=seek;
