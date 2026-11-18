@@ -226,7 +226,7 @@ for i, m in enumerate((79, 84, 88, 91)):
 # --- S8 (36–40): 엔드 카드
 put(fx, whoosh(0.7, 0.55), 35.62, 0.34)
 put(drums, impact(), 36.0, 0.95); put(send, crash(), 36.0, 0.24)
-put(fx, tick(), 36.42, 0.5)
+put(fx, tick(), 36.38, 0.5)                     # 맵 마커가 내려앉는 순간
 for i, m in enumerate((84, 88, 91, 96)):
     put(music, bell(m, 2.2), 36.5 + i * 0.035, 0.26); put(send, bell(m, 2.2), 36.5 + i * 0.035, 0.3)
 for i, m in enumerate((72, 76, 79, 84, 79, 76)):
